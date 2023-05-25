@@ -6,7 +6,7 @@ Elephant
 Frog
 Guitar
 Hat
-Ice cream
+Dessert
 Jellyfish
 Kangaroo
 Lion
@@ -47,7 +47,6 @@ Turtle
 Umbrella
 Vase
 Watermelon
-X Ray
 Yacht
 Zucchini
 Acorn
@@ -89,13 +88,11 @@ Ladybug
 Mosquito
 Nematode
 Owl
-Praying Mantis
-Queen Bee
+Mantis
 Roach
 Spider
 Termite
-Unicorn Beetle
-Velvet Ant
+Unicorn
 Wasp
 Astronaut
 Baker
@@ -120,7 +117,7 @@ Undertaker
 Veterinarian
 Waiter
 Xylophonist
-Youth Worker
+Worker
 Zookeeper
 Actor
 Chef
@@ -140,17 +137,17 @@ Quizmaster
 Runner
 Violinist
 Writer
-Yoga Instructor
+Instructor
 Zoologist
-Apple Pie
+Pie
 Burger
 Doughnut
 Eggroll
-French Fries
+Fries
 Guacamole
 Hotdog
 Jambalaya
-Kale Salad
+Kale
 Lasagna
 Muffin
 Nachos
@@ -161,7 +158,7 @@ Ramen
 Sushi
 Tacos
 Udon
-Veggie Burger
+Vegie
 Waffle
 Xacuti
 Yakitori
@@ -174,7 +171,7 @@ Equestrian
 Fencing
 Gymnastics
 Hockey
-Ice skating
+Skating
 Judo
 Karate
 Lacrosse
@@ -186,18 +183,18 @@ Quidditch
 Rugby
 Surfing
 Taekwondo
-Ultimate Frisbee
-Water polo
-Xtreme sports
+Frisbee
+Waterpolo
+Sports
 Zumba
 Art
 Ballet
 Comedy
 Drama
 Expressionism
-Folk dance
+Folk
 Graffiti
-Hip hop
+Hiphop
 Improv
 Jazz
 Kabuki
@@ -207,9 +204,9 @@ Noh
 Opera
 Poetry
 Quilting
-Rock music
+Rock
 Sculpture
-Tap dance
+Dance
 Ukulele
-Visual arts
+Visual
 Music

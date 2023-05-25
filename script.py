@@ -5,7 +5,7 @@ page_break = """
 -----------------------------------------------------------------------------------------------------------------------
 """
 game_header = """ 
-Welcom To:
+Welcome to:
 
 |XX|--------------------s
 |XX|                    s
@@ -235,8 +235,46 @@ hangman_seven_misses = """
 |XX|
 |XX|
 """
-hangman_you_won = "You Won!"
-hangman_game_over = "Sorry, but you got hanged!"
+hangman_game_over = """
+
+|XX|--------------------s        
+|XX|                    s        
+|XX|                   sss       
+|XX|                   sss       
+|XX|                  s   s      
+|XX|                 s     s     
+|XX|                  s s s       
+|XX|          
+|XX|   GGGGG      A     M     M  EEEEEEE    OOO    V     V  EEEEEEE  RRRRR      !!!  !!!  !!!                         
+|XX|  G     G    A A    MM   MM  E        O     O  V     V  E        R     R    !!!  !!!  !!!                  
+|XX|  G         A   A   M M M M  E        O     O  V     V  E        R     R    !!!  !!!  !!!                  
+|XX|  G  GGGG  AAAAAAA  M  M  M  EEEEE    O     O  V     V  EEEEE    RRRRR      !!!  !!!  !!!                      
+|XX|  G  G  G  A     A  M     M  E        O     O   V   V   E        R   R      !!!  !!!  !!!                  
+|XX|  G     G  A     A  M     M  E        O     O    V V    E        R    R                        
+|XX|   GGGGG   A     A  M     M  EEEEEEE    OOO       V     EEEEEEE  R     R    !!!  !!!  !!!                        
+|XX|   
+
+"""
+hangman_you_win = """
+
+|XX|--------------------s
+|XX|                    s
+|XX|                   sss 
+|XX|                   sss        
+|XX|                  s   s 
+|XX|                 s     s   
+|XX|                  s s s    
+|XX|          
+|XX|  Y     Y    OOO    U     U    W     W  IIIIIII  N     N    !!!  !!!  !!!
+|XX|   Y   Y   O     O  U     U    W     W     I     NN    N    !!!  !!!  !!!
+|XX|    Y Y    O     O  U     U    W     W     I     N N   N    !!!  !!!  !!!
+|XX|     Y     0     O  U     U    W  W  W     I     N  N  N    !!!  !!!  !!!
+|XX|     Y     O     O  U     U    W W W W     I     N   N N    !!!  !!!  !!!
+|XX|     Y     O     O  U     U    WW   WW     I     N    NN  
+|XX|     Y       OOO      UUU      W     W  IIIIIII  N     N    !!!  !!!  !!!
+|XX|
+
+"""
 word_list = []
 word_as_list = []
 guesses_as_list = []
@@ -331,6 +369,12 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                         misses_counter += 1
                         guess_counter += 1
                         if misses_counter == 8:
+                            word = ""
+                            for i in range(len(word_as_list)):
+                                word += word_as_list[i]
+                            print(page_break)
+                            print("Sorry, but my word was {word} and {letter} is not part of it: {string}".format(word = word, letter = player_guess.upper(), string = update_guess_as_string(word_as_list, guesses_as_list, guesses_as_string)))
+                            print(hangman_game_over)
                             break
                         else: 
                             past_guesses.append(player_guess.upper())
@@ -341,11 +385,11 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                             for i in past_guesses:
                                 past_guesses_string += i + " "
                             if guess_counter > 1:
-                                print("You have made guessed {number} letter so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
+                                print("You have made {number} guess so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
                                 print("Wrong guesses: {x}".format(x = misses_counter))
                                 print("Correct guesses: {x}".format(x = (guess_counter-misses_counter)))
                             else:
-                                print("You have made guessed {number} letter so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
+                                print("You have made {number} guess so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
                                 print("Wrong guesses: {x}".format(x = misses_counter))
                                 print("Correct guesses: {x}".format(x = (guess_counter-misses_counter)))
                     if player_guess.upper() in word_as_list:
@@ -355,6 +399,12 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                             if word_as_list[i] == player_guess.upper():
                                 guesses_as_list[i] = player_guess.upper()
                         if guesses_as_list == word_as_list:
+                            word = ""
+                            for i in range(len(word_as_list)):
+                                word += word_as_list[i]
+                            print(page_break)
+                            print("Good job! My word was {word} and ir does contain the letter {letter}: {string}".format(word = word, letter = player_guess.upper(), string = update_guess_as_string(word_as_list, guesses_as_list, guesses_as_string)))
+                            print(hangman_you_win)
                             break
                         else:
                             print(page_break) 
@@ -364,11 +414,11 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                             for i in past_guesses:
                                 past_guesses_string += i + " "
                             if guess_counter > 1:
-                                print("You have made guessed {number} letter so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
+                                print("You have made {number} guess so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
                                 print("Wrong guesses: {x}".format(x = misses_counter))
                                 print("Correct guesses: {x}".format(x = (guess_counter-misses_counter)))
                             else:
-                                print("You have made guessed {number} letter so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
+                                print("You have made {number} guess so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
                                 print("Wrong guesses: {x}".format(x = misses_counter))
                                 print("Correct guesses: {x}".format(x = (guess_counter-misses_counter)))
                 elif player_guess.upper() in past_guesses:
@@ -379,12 +429,6 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                 print(page_break)
                 print("Oops, it seems like you did not enter a valid letter as your guess, please try again: ")
                 continue
-    if word_as_list == guesses_as_list:
-        print(page_break)
-        print(hangman_you_won)
-    if misses_counter == 8:
-        print(page_break)
-        print(hangman_game_over)
 
 print(game_header)
 start_new_game()
