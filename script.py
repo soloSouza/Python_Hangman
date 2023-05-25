@@ -105,7 +105,6 @@ hangman_two_misses = """
 |XX|
 """
 hangman_three_misses = """
-
 |XX|--------------------s
 |XX|                    s
 |XX|                    s
@@ -310,26 +309,6 @@ def update_guess_as_string(word_as_list, guesses_as_list, guesses_as_string):
             guesses_as_string += " _"
     return guesses_as_string
 
-# start_new_game function asks for user (Y/N) input and catches any exception asking for a valid answer.
-def start_new_game():
-    player_input = input("Would you like to start a new game? (Y/N): ")
-    if player_input.upper() == "Y" or player_input.upper() == "N":
-        if player_input.upper() == "Y":
-            game_word = select_word()
-            print(page_break)
-            print("Great, let's play:\n")
-            print("You can type \"EXIT\" at any time to quit the game.\n")
-            print(hangman_initial)
-            print("I've selected a word of {letter_count} letters for you to try and guess before being hanged: {string}".format(letter_count = len(game_word), string = update_guess_as_string(word_as_list, guesses_as_list, guesses_as_string)))
-        else:
-            print(page_break)
-            print("\nI'm sad to see you leave! Come back at any time.\n")
-            quit()    
-    else:
-        print(page_break)
-        print("\nOops, it seems like you did not provide a valid answer, please try again:")
-        start_new_game()
-
 # print visual aid according to miss_counter:
 def insert_visual_aid(misses_counter):
     if misses_counter == 0:
@@ -361,6 +340,8 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
             print(page_break)
             player_guess = input("What is your next guess: ")
         if player_guess.upper() == "EXIT":
+            print(page_break)
+            print("\nI'm sad to see you leave! Come back at any time.\n")
             quit()
         else:
             if player_guess.upper() in possible_letters:
@@ -385,7 +366,7 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                             for i in past_guesses:
                                 past_guesses_string += i + " "
                             if guess_counter > 1:
-                                print("You have made {number} guess so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
+                                print("You have made {number} guesses so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
                                 print("Wrong guesses: {x}".format(x = misses_counter))
                                 print("Correct guesses: {x}".format(x = (guess_counter-misses_counter)))
                             else:
@@ -414,7 +395,7 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                             for i in past_guesses:
                                 past_guesses_string += i + " "
                             if guess_counter > 1:
-                                print("You have made {number} guess so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
+                                print("You have made {number} guesses so far: {letters}".format(number = guess_counter, letters = past_guesses_string))
                                 print("Wrong guesses: {x}".format(x = misses_counter))
                                 print("Correct guesses: {x}".format(x = (guess_counter-misses_counter)))
                             else:
@@ -430,6 +411,39 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                 print("Oops, it seems like you did not enter a valid letter as your guess, please try again: ")
                 continue
 
+# start_new_game function asks for user (Y/N) input and catches any exception asking for a valid answer.
+def start_new_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, possible_letters, past_guesses, guess_counter):
+    player_input = input("Would you like to start a new game? (Y/N): ")
+    if player_input.upper() == "Y" or player_input.upper() == "N":
+        if player_input.upper() == "Y":
+            word_as_list = []
+            guesses_as_list = []
+            guesses_as_string = ""
+            misses_counter = 0
+            past_guesses = []
+            guess_counter = 0
+            word_index = random.randint(1,len(word_list))
+            game_word = word_list[word_index]
+            word_list.remove(game_word)
+            for letter in game_word:
+                word_as_list.append(letter)
+            for letter in game_word:
+                guesses_as_list.append(" ")
+            print(page_break)
+            print("Great, let's play:\n")
+            print("You can type \"EXIT\" at any time to quit the game.\n")
+            print(hangman_initial)
+            print("I've selected a word of {letter_count} letters for you to try and guess before being hanged: {string}".format(letter_count = len(game_word), string = update_guess_as_string(word_as_list, guesses_as_list, guesses_as_string)))
+            play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, possible_letters, past_guesses, guess_counter)
+            start_new_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, possible_letters, past_guesses, guess_counter)
+        else:
+            print(page_break)
+            print("\nI'm sad to see you leave! Come back at any time.\n")
+            quit()    
+    else:
+        print(page_break)
+        print("\nOops, it seems like you did not provide a valid answer, please try again:")
+        start_new_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, possible_letters, past_guesses, guess_counter)
+
 print(game_header)
-start_new_game()
-play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, possible_letters, past_guesses, guess_counter)
+start_new_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, possible_letters, past_guesses, guess_counter)
