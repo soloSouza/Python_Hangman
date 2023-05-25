@@ -403,7 +403,7 @@ def play_game(word_as_list, guesses_as_list, guesses_as_string, misses_counter, 
                             for i in range(len(word_as_list)):
                                 word += word_as_list[i]
                             print(page_break)
-                            print("Good job! My word was {word} and ir does contain the letter {letter}: {string}".format(word = word, letter = player_guess.upper(), string = update_guess_as_string(word_as_list, guesses_as_list, guesses_as_string)))
+                            print("Good job! My word was {word} and it does contain the letter {letter}: {string}".format(word = word, letter = player_guess.upper(), string = update_guess_as_string(word_as_list, guesses_as_list, guesses_as_string)))
                             print(hangman_you_win)
                             break
                         else:
