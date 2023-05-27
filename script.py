@@ -244,13 +244,13 @@ hangman_game_over = """
 |XX|                 s     s     
 |XX|                  s s s       
 |XX|          
-|XX|   GGGGG      A     M     M  EEEEEEE    OOO    V     V  EEEEEEE  RRRRR      !!!  !!!  !!!                         
-|XX|  G     G    A A    MM   MM  E        O     O  V     V  E        R     R    !!!  !!!  !!!                  
-|XX|  G         A   A   M M M M  E        O     O  V     V  E        R     R    !!!  !!!  !!!                  
-|XX|  G  GGGG  AAAAAAA  M  M  M  EEEEE    O     O  V     V  EEEEE    RRRRR      !!!  !!!  !!!                      
-|XX|  G  G  G  A     A  M     M  E        O     O   V   V   E        R   R      !!!  !!!  !!!                  
-|XX|  G     G  A     A  M     M  E        O     O    V V    E        R    R                        
-|XX|   GGGGG   A     A  M     M  EEEEEEE    OOO       V     EEEEEEE  R     R    !!!  !!!  !!!                        
+|XX|   GGGGG      A     M     M  EEEEEEE      OOO    V     V  EEEEEEE  RRRRR      !!!  !!!  !!!                         
+|XX|  G     G    A A    MM   MM  E          O     O  V     V  E        R     R    !!!  !!!  !!!                  
+|XX|  G         A   A   M M M M  E          O     O  V     V  E        R     R    !!!  !!!  !!!                  
+|XX|  G  GGGG  AAAAAAA  M  M  M  EEEEE      O     O  V     V  EEEEE    RRRRR      !!!  !!!  !!!                      
+|XX|  G  G  G  A     A  M     M  E          O     O   V   V   E        R   R      !!!  !!!  !!!                  
+|XX|  G     G  A     A  M     M  E          O     O    V V    E        R    R                        
+|XX|   GGGGG   A     A  M     M  EEEEEEE      OOO       V     EEEEEEE  R     R    !!!  !!!  !!!                        
 |XX|   
 
 """
